@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
+from rest_framework import generics  # noqa
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import generics  # noqa
 
-from .models import MyUser as User, Token  # noqa
+from .models import MyUser as User  # noqa
+from .models import Token
 
 
 @api_view(['POST'])

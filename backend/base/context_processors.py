@@ -6,5 +6,5 @@ def site_info(request):
             'nav_list': (
                 ('/', 'Home'),
                 ('/admin', 'Admin'),
-                ),
+            ),
             }

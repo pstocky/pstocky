@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
 import os
-from os.path import dirname, abspath
 import sys
+from os.path import abspath, dirname
+
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "base.settings")

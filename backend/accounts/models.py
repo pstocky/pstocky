@@ -1,14 +1,11 @@
 # -*- coding:utf-8 -*-
 import binascii
 import os
-from django.db import models
 
 from django.conf import settings  # upload path
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db import models
 from django_thumbs.db.models import ImageWithThumbsField
-
-from django.contrib.auth.models import (
-    AbstractBaseUser, BaseUserManager,
-)
 
 
 class MyUserManager(BaseUserManager):

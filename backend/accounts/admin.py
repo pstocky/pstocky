@@ -1,13 +1,11 @@
 # -*- coding:utf-8 -*-
 from django import forms
 from django.contrib import admin
-from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.models import Group
 
-from .models import (
-    MyUser, Token,
-)
+from .models import MyUser, Token
 
 
 class UserCreationForm(forms.ModelForm):

@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
-from rest_framework import authentication
-from rest_framework import exceptions
 from django.utils.translation import ugettext_lazy as _
+from rest_framework import authentication, exceptions
 
 from .models import Token
 
