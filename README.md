@@ -22,3 +22,4 @@ admin `http://127.0.0.1:8000/admin`
 # 注意
 
 1. 目前没有 html 文件，所以，首页打不开。
+2. 提交代码前执行check.sh进行pep8检查以及isort

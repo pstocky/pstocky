@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 import os
-from os.path import join, dirname, abspath
+from os.path import abspath, dirname, join
 
 REDIS_CONN = os.environ.get('REDIS_CONN', 'redis://127.0.0.1:6379/2')
 MYSQL_CONN = os.environ.get('MYSQL_CONN', None)

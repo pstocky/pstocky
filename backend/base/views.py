@@ -1,12 +1,10 @@
 # -*- coding:utf-8 -*-
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 import socket
 
 from django.template.response import TemplateResponse
-
 from django_redis import get_redis_connection
-
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 redis = get_redis_connection("default")
 host = socket.gethostname()
