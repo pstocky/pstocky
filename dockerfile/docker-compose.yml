@@ -1,7 +1,7 @@
 redis:
     image: redis
     ports:
-        - "6379"
+        - "6379:6379"
 
 
 pstocky:
@@ -9,4 +9,4 @@ pstocky:
     links:
         - redis
     ports:
-        - "8000"
+        - "8000:8000"
