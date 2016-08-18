@@ -23,3 +23,16 @@ admin `http://127.0.0.1:8000/admin`
 
 1. 目前没有 html 文件，所以，首页打不开。
 2. 提交代码前执行check.sh进行pep8检查以及isort
+
+# 文档
+
+1. 电子书统一上传至七牛，在单独的 github 仓库里维护一份 阅读 list
+
+大家有想要分享的文档，可以邮件发给我，我人肉上传至七牛并分享。
+
+很快会提供个工具，让大家可以自己上传。
+
+# 贡献者
+
+- [Jackon Yang](http://github.com/jackonyang)
+- [bug-wang](https://github.com/linux-wang)
