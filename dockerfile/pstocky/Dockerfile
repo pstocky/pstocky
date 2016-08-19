@@ -13,11 +13,10 @@ RUN cd /opt && \
 RUN cd /opt/pstocky && \
     pip install -r backend/requirements.txt
 
-RUN chmod 777 /opt/pstocky/backend/base/settings.py
-
-ADD ./local_settings.docker /opt/pstocky/backend/base/settings.py
 
 EXPOSE 8000
-WORKDIR /opt/pstocky
+WORKDIR /opt/pstocky/backend
 
+RUN sh /opt/pstocky/backend/install.sh
+RUN  echo "from django.contrib.auth import get_user_model;User = get_user_model(); User.objects.create_superuser('docker', '123')" | python manage.py shell
 CMD ["/usr/bin/python","/opt/pstocky/backend/manage.py","runserver","0.0.0.0:8000"]
