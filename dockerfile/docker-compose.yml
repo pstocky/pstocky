@@ -1,12 +1,27 @@
-redis:
-    image: redis
-    ports:
-        - "6379:6379"
+services:
 
-
-pstocky:
+  pstocky:
     build: ./pstocky
-    links:
-        - redis
     ports:
-        - "8000:8000"
+      - "8000:8000"
+    environment:
+      - REDIS_CONN=redis://redis:6379/2
+      - MYSQL_CONN=mysql
+      - DEBUG=True
+    depends_on:
+      - redis
+      - mysql
+
+
+  redis:
+    image: redis:3.0.7
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=django
+      - MYSQL_ROOT_PASSWORD=Jackon123
+      - MYSQL_ALLOW_EMPTY_PASSWORD=no
+
+
+
