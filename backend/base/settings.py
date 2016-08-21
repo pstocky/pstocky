@@ -178,7 +178,7 @@ if DEBUG is True:
 QINIU_ACCESS_KEY = os.environ.get('QINIU_ACCESS_KEY', '')
 QINIU_SECRET_KEY = os.environ.get('QINIU_SECRET_KEY', '')
 QINIU_BUCKET_NAME = os.environ.get('QINIU_BUCKET_NAME', 'ebook')
-QINIU_BUCKET_CDN_DOMAIN = os.environ.get('QINIU_BUCKET_CDN_DOMAIN', 'ebook-cdn.safebang.org')
+QINIU_BUCKET_CDN_DOMAIN = os.environ.get('QINIU_BUCKET_CDN_DOMAIN', 'http://ebook-cdn.safebang.org')
 QINIU_SECURE_URL = False
 
 
