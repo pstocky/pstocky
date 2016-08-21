@@ -41,4 +41,4 @@ class BookFile(models.Model):
         return self.title
 
     def gen_qiniu_key(self):
-        return '%s_%s%s' % (self.md5, self.size, self.ext)
+        return '%s_%s%s' % (self.md5, self.size_kb, self.ext)
