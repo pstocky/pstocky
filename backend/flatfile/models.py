@@ -21,7 +21,7 @@ class BookFile(models.Model):
     size_kb = models.PositiveIntegerField(u'大小(KB)')
     language = models.CharField(u'语言', max_length=10, choices=LANGUAGE_CHOICES)
 
-    desc = models.TextField(u'描述', max_length=500, blank=True)
+    desc = models.TextField(u'描述', max_length=500, null=True, blank=True)
 
     class Meta:
         verbose_name = u'电子书文件'
