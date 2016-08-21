@@ -24,7 +24,7 @@ class BookFileCreationForm(forms.ModelForm):
             'desc',
         )
 
-    def save(self, commit=True):
+    def clean_bookfile(self):
         bookfile = self.cleaned_data['bookfile']
 
         # calc md5_obj
@@ -34,16 +34,29 @@ class BookFileCreationForm(forms.ModelForm):
         md5 = md5_obj.hexdigest()
 
         try:
-            obj = BookFile.objects.get(md5=md5)
+            BookFile.objects.get(md5=md5)
         except BookFile.DoesNotExist:
-            # new file
-            obj = super(BookFileCreationForm, self).save(commit=False)
-            obj.md5 = md5
-            # size, set to 1 if less than 1
-            obj.size_kb = bookfile.size / 1024 or 1
+            pass
+        else:
+            raise forms.ValidationError(u'file exists')
+        return bookfile
 
-            # upload to qiniu
-            obj.qiniu_key = '%s_%s' % (obj.md5, obj.size_kb)
+    def save(self, commit=True):
+        bookfile = self.cleaned_data['bookfile']
+
+        # calc md5_obj
+        md5_obj = hashlib.md5()
+        for chunk in bookfile.chunks():
+            md5_obj.update(chunk)
+        md5 = md5_obj.hexdigest()
+
+        obj = super(BookFileCreationForm, self).save(commit=False)
+        obj.md5 = md5
+        # size, set to 1 if less than 1
+        obj.size_kb = bookfile.size / 1024 or 1
+
+        # upload to qiniu
+        obj.qiniu_key = '%s_%s' % (obj.md5, obj.size_kb)
 
         # raw name and ext
         raw_filename = bookfile.name
@@ -63,7 +76,10 @@ class BookFileCreationForm(forms.ModelForm):
 @admin.register(BookFile)
 class BookFileAdmin(admin.ModelAdmin):
     # The forms to add and change BookFile instances
-    form = BookFileCreationForm
+    def get_form(self, request, obj=None, **kwargs):
+        if not obj:
+            return BookFileCreationForm
+        return super(BookFileAdmin, self).get_form(request, obj, **kwargs)
 
     list_display = (
         'title', 'language',
