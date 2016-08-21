@@ -5,6 +5,7 @@ from django import forms
 from django.contrib import admin
 
 from .models import BookFile
+from utils.uploads import upload_file
 
 
 class BookFileCreationForm(forms.ModelForm):
@@ -55,15 +56,16 @@ class BookFileCreationForm(forms.ModelForm):
         # size, set to 1 if less than 1
         obj.size_kb = bookfile.size / 1024 or 1
 
-        # upload to qiniu
-        obj.qiniu_key = '%s_%s' % (obj.md5, obj.size_kb)
-
         # raw name and ext
         raw_filename = bookfile.name
         basename, ext = os.path.splitext(raw_filename)
 
         obj.filenames = basename
         obj.ext = ext
+
+        # upload to qiniu
+        obj.qiniu_key = '%s_%s%s' % (obj.md5, obj.size_kb, ext)
+        upload_file(bookfile, obj.qiniu_key)
 
         if not obj.title:
             obj.title = basename

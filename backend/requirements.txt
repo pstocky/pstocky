@@ -16,6 +16,7 @@ django-extensions==1.6.7
 requests==2.10.0
 
 pillow
+qiniu==7.0.8
 
 redis==2.10.5
 django-redis==4.2.0
