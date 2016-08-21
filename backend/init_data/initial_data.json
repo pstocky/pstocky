@@ -1,0 +1,152 @@
+[
+{
+    "fields": {
+        "expire_date": "2016-09-04T14:24:59.769Z",
+        "session_data": "NWFmODYzMjI4NjJlOTk2ZTE0ZDBjYWI3ZDY5YTEyMTUxMzAyYjRkODp7Il9hdXRoX3VzZXJfaGFzaCI6IjVhOGQ5YzRmNjNhNWUyMjYwOGI0MzExNDRhZTlhMjk4MzQ4MmMxYzYiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0="
+    },
+    "model": "sessions.session",
+    "pk": "v78ggsngmp1msv09zmyh1srmnir2hda5"
+},
+{
+    "fields": {
+        "domain": "example.com",
+        "name": "example.com"
+    },
+    "model": "sites.site",
+    "pk": 1
+},
+{
+    "fields": {
+        "status": 2,
+        "username": "admin",
+        "offical_name": null,
+        "nick_name": null,
+        "gender": null,
+        "hide_offical_name": false,
+        "is_staff": true,
+        "last_login": "2016-08-21T14:24:59.767Z",
+        "avatar": "user-avatar/default-avatar.png",
+        "role": 1,
+        "password": "pbkdf2_sha256$20000$JzEmZ8jxvwiy$ma0CeGZ5bluTPYk2WLeKfxgJsNx+aF13Glz3ci4hbOY="
+    },
+    "model": "accounts.myuser",
+    "pk": 1
+},
+{
+    "fields": {
+        "status": 2,
+        "username": "jackon",
+        "offical_name": null,
+        "nick_name": null,
+        "gender": null,
+        "hide_offical_name": false,
+        "is_staff": false,
+        "last_login": null,
+        "avatar": "user-avatar/default-avatar.png",
+        "role": 1,
+        "password": "pbkdf2_sha256$20000$bEeOiExMrf3e$7mTN/b7jtnPQlB7kGw1wrSk6/bu6M+u9F+FiDM9p6M0="
+    },
+    "model": "accounts.myuser",
+    "pk": 2
+},
+{
+    "fields": {
+        "checked": true,
+        "size_kb": 4577,
+        "language": "en",
+        "title": "two scoops - django best practices",
+        "ad_inside": false,
+        "checker": [
+            "jackon"
+        ],
+        "filenames": "two-scoops-django-best-practices-1.5",
+        "ext": ".pdf",
+        "not_clear": false,
+        "qiniu_key": "170e703bf51f4f3b3a00449ab622c918_4577.pdf",
+        "incomplete": false,
+        "desc": "\u4e66\u5982\u5176\u540d\uff0cDjango \u7684\u6700\u4f73\u7f16\u7a0b\u5b9e\u8df5\u3002\r\n\r\n\u4e0d\u7ba1\u662f\u521d\u5b66\u8005\uff0c\u8fd8\u662f\u591a\u5e74\u5f00\u53d1\u7ecf\u9a8c\u7684\uff0c\u90fd\u503c\u5f97\u4e00\u8bfb\u3002\r\n\r\n\u63a8\u8350\uff01"
+    },
+    "model": "flatfile.bookfile",
+    "pk": "170e703bf51f4f3b3a00449ab622c918"
+},
+{
+    "fields": {
+        "checked": true,
+        "size_kb": 7643,
+        "language": "en",
+        "title": "Learning Python, 5th Edition",
+        "ad_inside": false,
+        "checker": [
+            "jackon"
+        ],
+        "filenames": "Learning Python, 5th Edition",
+        "ext": ".pdf",
+        "not_clear": false,
+        "qiniu_key": "6172d8f7baa08253a572fd902c52ad4c_7643.pdf",
+        "incomplete": false,
+        "desc": "\u5de8\u7ec6\u65e0\u6bd4\u7684\u4e00\u672c python \u5927\u5757\u5934\u3002\u53ef\u4ee5\u4f5c\u4e3a\u624b\u518c\uff01"
+    },
+    "model": "flatfile.bookfile",
+    "pk": "6172d8f7baa08253a572fd902c52ad4c"
+},
+{
+    "fields": {
+        "checked": true,
+        "size_kb": 4833,
+        "language": "en",
+        "title": "Learning Website Development with Django",
+        "ad_inside": false,
+        "checker": [
+            "jackon"
+        ],
+        "filenames": "Learning Website Development with Django",
+        "ext": ".pdf",
+        "not_clear": false,
+        "qiniu_key": "7ca591c1e6f6026dbcd52da622f09542_4833.pdf",
+        "incomplete": false,
+        "desc": "\u4ee5\u4e00\u4e2a\u901a\u7528\u7684\u5b9e\u9645\u9879\u76ee\u4e3a\u4f8b\uff0c\u7531\u6d45\u5165\u6df1\u7684\u4ecb\u7ecd Django \u5f00\u53d1\u3002\r\n\r\n\u975e\u5e38\u9002\u5408\u521d\u5b66\u8005\u3002\u53ef\u4ee5\u4ece\u5934\u8ddf\u7740\u505a\u4e00\u904d\u3002"
+    },
+    "model": "flatfile.bookfile",
+    "pk": "7ca591c1e6f6026dbcd52da622f09542"
+},
+{
+    "fields": {
+        "checked": true,
+        "size_kb": 7242,
+        "language": "en",
+        "title": "hacking with react",
+        "ad_inside": false,
+        "checker": [
+            "jackon"
+        ],
+        "filenames": "hacking-with-react",
+        "ext": ".pdf",
+        "not_clear": false,
+        "qiniu_key": "96a0647ef2af8ebdafbc26ca46bb97ea_7242.pdf",
+        "incomplete": false,
+        "desc": "\u975e\u5e38\u9002\u5408\u4f5c\u4e3a react \u5165\u95e8\u7684\u7b2c\u4e00\u672c\u4e66\u3002\r\n\r\n\u6211\u548c\u51e0\u4e2a\u670b\u53cb\uff0c\u90fd\u662f\u7528\u8fd9\u672c\u4e66\u6210\u529f\u7684\u5feb\u901f\u5165\u95e8\u4e86 react\u3002\r\n\r\n\u4e25\u91cd\u63a8\u8350\u3002"
+    },
+    "model": "flatfile.bookfile",
+    "pk": "96a0647ef2af8ebdafbc26ca46bb97ea"
+},
+{
+    "fields": {
+        "checked": true,
+        "size_kb": 318,
+        "language": "cn",
+        "title": "Google Python Style Guide",
+        "ad_inside": false,
+        "checker": [
+            "jackon"
+        ],
+        "filenames": "Google+Python+Style+Guide\u4e2d\u6587\u7248",
+        "ext": ".pdf",
+        "not_clear": false,
+        "qiniu_key": "ccedaa008a6c411caf1201f3c5f72f6c_318.pdf",
+        "incomplete": false,
+        "desc": "google \u5bb6\u7684 python \u7f16\u7801\u89c4\u8303\uff0c\u5f88\u591a team \u4e5f\u90fd\u4ee5\u8fd9\u4e2a\u4f5c\u4e3a\u8303\u672c\u3002\u503c\u5f97\u4e00\u770b\u3002"
+    },
+    "model": "flatfile.bookfile",
+    "pk": "ccedaa008a6c411caf1201f3c5f72f6c"
+}
+]
