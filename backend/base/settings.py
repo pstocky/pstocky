@@ -74,6 +74,9 @@ INSTALLED_APPS = (
     'django_extensions',
     'rest_framework',
     'django_filters',
+    # ebooks and docs
+    'flatfile',
+    # accounts
     'accounts',
 )
 
