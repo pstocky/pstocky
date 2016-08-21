@@ -29,7 +29,7 @@ class BookFile(models.Model):
     not_clear = models.BooleanField(u'扫描不清晰', default=True)
 
     checked = models.BooleanField(u'已校验', default=False)
-    checker = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=u'校验人', null=True, blank=True)
+    checker = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=u'校验人', null=True, blank=True)
 
     desc = models.TextField(u'描述', max_length=500, null=True, blank=True)
 
