@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 from django.db import models
 
+from django.conf import settings
+
 
 class BookFile(models.Model):
 
@@ -21,6 +23,14 @@ class BookFile(models.Model):
     size_kb = models.PositiveIntegerField(u'大小(KB)')
     language = models.CharField(u'语言', max_length=10, choices=LANGUAGE_CHOICES)
 
+    # quality
+    ad_inside = models.BooleanField(u'内含广告', default=True)
+    incomplete = models.BooleanField(u'内容残缺', default=True)
+    not_clear = models.BooleanField(u'扫描不清晰', default=True)
+
+    checked = models.BooleanField(u'已校验', default=False)
+    checker = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=u'校验人', null=True, blank=True)
+
     desc = models.TextField(u'描述', max_length=500, null=True, blank=True)
 
     class Meta:
@@ -29,3 +39,6 @@ class BookFile(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def gen_qiniu_key(self):
+        return '%s_%s%s' % (self.md5, self.size, self.ext)

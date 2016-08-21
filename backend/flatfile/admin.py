@@ -7,6 +7,11 @@ from django.contrib import admin
 from .models import BookFile
 from utils.uploads import upload_file
 
+from django.conf import settings
+
+
+qiniu_domain = settings.QINIU_BUCKET_CDN_DOMAIN
+
 
 class BookFileCreationForm(forms.ModelForm):
     """A form for creating new BookFile.
@@ -63,12 +68,13 @@ class BookFileCreationForm(forms.ModelForm):
         obj.filenames = basename
         obj.ext = ext
 
-        # upload to qiniu
-        obj.qiniu_key = '%s_%s%s' % (obj.md5, obj.size_kb, ext)
-        upload_file(bookfile, obj.qiniu_key)
-
         if not obj.title:
             obj.title = basename
+
+        # upload to qiniu
+        obj.qiniu_key = obj.gen_qiniu_key()
+        # TODO: upload async. use celery
+        upload_file(bookfile, obj.qiniu_key)
 
         if commit:
             obj.save()
@@ -83,15 +89,30 @@ class BookFileAdmin(admin.ModelAdmin):
             return BookFileCreationForm
         return super(BookFileAdmin, self).get_form(request, obj, **kwargs)
 
+    def download_url(self, ins):
+        return '<a href="%s/%s">%s</a>' % (
+            qiniu_domain, ins.qiniu_key, ins.title)
+
+    download_url.short_description = u"下载链接"
+    download_url.allow_tags = True
+
+    readonly_fields = (
+        'download_url',
+    )
+
     list_display = (
         'title', 'language',
         'md5',
         'ext', 'size_kb',
+        'download_url',
+        'checked',
     )
 
     list_filter = (
         'language',
         'ext',
+        'ad_inside', 'incomplete', 'not_clear',
+        'checked',
     )
 
     search_fields = (
