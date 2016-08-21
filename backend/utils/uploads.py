@@ -11,7 +11,6 @@ secret_key = settings.QINIU_SECRET_KEY
 bucket_name = settings.QINIU_BUCKET_NAME
 domain = settings.QINIU_BUCKET_CDN_DOMAIN
 
-q = qiniu.Auth(access_key, secret_key)
 
 policy = {
     'scope': bucket_name,
@@ -39,6 +38,7 @@ def upload_file(file_stream, key):
         for chunk in file_stream.chunks():
             f.write(chunk)
 
+    q = qiniu.Auth(access_key, secret_key)
     uptoken = q.upload_token(bucket=bucket_name, policy=policy)
     ret, info = qiniu.put_file(uptoken, key, f.name)
     # log ret
