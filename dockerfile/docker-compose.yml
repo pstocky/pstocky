@@ -14,7 +14,7 @@ services:
 
 
   redisdb:
-    image: redis:3.2
+    image: daocloud.io/redis:3.2
 
 
 
