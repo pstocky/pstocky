@@ -37,3 +37,6 @@ docker-compose ps
 `
 http://localhost:8000/api
 `
+
+0x06 ### login
+use *docker*/123 to login to /admin
