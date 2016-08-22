@@ -26,3 +26,9 @@ def create_user():
         username=username, password=password
     )
 ```
+
+## use Python to serve static files.
+
+```python
+python -m SimpleHTTPServer 8080
+```
