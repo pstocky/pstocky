@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'flatfile',
     # accounts
     'accounts',
+    'actor'
 )
 
 SITE_ID = 1  # required if contrib.sites is present

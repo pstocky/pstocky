@@ -1,0 +1,9 @@
+  {
+    "name": "nihao",
+    "phone": 1350599146,
+    "idtype": "jk",
+    "idnum": "123456",
+    "isadult": true,
+    "isman": true,
+    "type": "bad"
+}
