@@ -1,4 +1,4 @@
-# Django LTS and grappelli
+﻿# Django LTS and grappelli
 django==1.8
 django-grappelli==2.7.1
 
@@ -25,3 +25,4 @@ MySQL-python==1.2.5
 uWSGI==2.0.13
 
 pep8==1.7.0
+Pygments==2.1.3

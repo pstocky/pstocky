@@ -2,6 +2,7 @@
 from django.conf import settings
 from django.conf.urls import include, patterns, url
 from django.contrib import admin
+from actor import views
 
 urlpatterns = patterns('',  # noqa
     url(r'^$', 'base.views.home', name='home'),
@@ -12,7 +13,14 @@ urlpatterns = patterns('',  # noqa
     url(r'^api-auth/', include('rest_framework.urls',
         namespace='rest_framework')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^Actor_API/$', views.allnumber),
+    url(r'^Actor_API/(?P<pk>[0-9]+)$', views.number),
 )
+urlpatterns += [
+    url(r'^api-auth/', include('rest_framework.urls',
+                               namespace='rest_framework')),
+]
+
 
 
 if settings.DEBUG:
