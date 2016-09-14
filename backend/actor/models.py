@@ -1,4 +1,7 @@
 # -*- coding:utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 # Create your models here.
 # Create your models here.
@@ -13,8 +16,8 @@ STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 class Person(models.Model):
     created = models.DateTimeField(auto_now_add=True,unique=True)
-    name = models.CharField(max_length=10,default='参加者姓名')
-    phone = models.IntegerField(default='11位手机号码')
+    name = models.CharField(max_length=10,default=u'参加者姓名')
+    phone = models.IntegerField(default=u'11位手机号码')
     IDcard = 1
     IDdrive = 2
 
@@ -24,7 +27,7 @@ class Person(models.Model):
     )
     IDstatus = models.IntegerField(u'-请选择证件类型-', choices=IDtype, default=IDcard)
 
-    idnum = models.CharField(max_length=20,unique=True,default='证件号码')
+    idnum = models.CharField(max_length=20,unique=True,default=u'证件号码')
 
     Isadult = 1
     Notadult = 0
@@ -53,8 +56,8 @@ class Person(models.Model):
     type = models.IntegerField(u'-请选择成员类型-',choices=admintype,default=normal)
 
     class Meta:
-        ordering = ('created',)
-        db_table = ('VIP')
+        ordering = (u'created',)
+        db_table = (u'VIP')
     def __str__(self):
         return self.name
 
