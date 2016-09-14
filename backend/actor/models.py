@@ -1,10 +1,8 @@
 # -*- coding:utf-8 -*-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+# import sys
+# reload(sys)
+# sys.setdefaultencoding('utf8')
 
-# Create your models here.
-# Create your models here.
 from django.db import models
 from pygments.lexers import get_all_lexers
 from pygments.styles import get_all_styles
@@ -16,8 +14,8 @@ STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 class Person(models.Model):
     created = models.DateTimeField(auto_now_add=True,unique=True)
-    name = models.CharField(max_length=10,default=u'参加者姓名')
-    phone = models.IntegerField(default=u'11位手机号码')
+    name = models.CharField(max_length=10,)
+    phone = models.IntegerField()
     IDcard = 1
     IDdrive = 2
 
@@ -25,9 +23,9 @@ class Person(models.Model):
         (IDcard, u'身份证'),
         (IDdrive, u'驾驶证'),
     )
-    IDstatus = models.IntegerField(u'-请选择证件类型-', choices=IDtype, default=IDcard)
+    IDstatus = models.IntegerField(u'-请选择证件类型-', choices=IDtype, )
 
-    idnum = models.CharField(max_length=20,unique=True,default=u'证件号码')
+    idnum = models.CharField(max_length=20,unique=True,)
 
     Isadult = 1
     Notadult = 0
@@ -36,7 +34,7 @@ class Person(models.Model):
         (Isadult, u'-成年-'),
         (Notadult, u'-未成年-'),
     )
-    Adultor = models.IntegerField(u'-成年-', choices=Adultornot, default=Isadult)
+    Adultor = models.IntegerField(u'-成年-', choices=Adultornot)
 
 
     man = 1
@@ -45,7 +43,7 @@ class Person(models.Model):
         (man,u'男'),
         (woman,u'女')
     )
-    sex = models.IntegerField(u'-性别-',choices=isman,default=man)
+    sex = models.IntegerField(u'-性别-',choices=isman)
 
     VIP = 1
     normal =2
@@ -53,7 +51,7 @@ class Person(models.Model):
         (normal,u'-普通会员-'),
         (VIP,u'-VIP会员-')
     )
-    type = models.IntegerField(u'-请选择成员类型-',choices=admintype,default=normal)
+    type = models.IntegerField(u'-请选择成员类型-',choices=admintype)
 
     class Meta:
         ordering = (u'created',)
