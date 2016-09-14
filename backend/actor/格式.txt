@@ -1,9 +1,10 @@
-  {
-    "name": "nihao",
-    "phone": 1350599146,
-    "idtype": "jk",
-    "idnum": "123456",
-    "isadult": true,
-    "isman": true,
-    "type": "bad"
+{
+    "created": "2016-09-14T09:30:38.517354Z",
+    "name": "吵吗",
+    "phone": 1251234,
+    "IDstatus": 1,
+    "idnum": "124578",
+    "Adultor": 1,
+    "sex": 1,
+    "type": 2
 }
