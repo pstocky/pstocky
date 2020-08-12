@@ -1,5 +1,6 @@
 # .gitignore by jackon.me
 
+.ipynb_checkpoints
 
 # self defined -- Django
 db.sqlite3
